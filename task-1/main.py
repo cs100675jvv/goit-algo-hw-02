@@ -1,5 +1,4 @@
 import queue
-import random
 import time
 
 # Створити чергу заявок
@@ -25,18 +24,22 @@ def process_request():
         print("Черга пуста, немає заявок для обробки")
 
 def main():
-    while True:
-        user_input = input("Введіть 'g' для генерації заявки, 'p' для обробки заявки, 'q' для виходу: ").strip().lower()
-        
-        if user_input == 'g':
-            generate_request()
-        elif user_input == 'p':
-            process_request()
-        elif user_input == 'q':
-            print("Вихід з програми")
-            break
-        else:
-            print("Невідома команда, спробуйте ще раз")
+    try:
+
+        while True:
+            user_input = input("Введіть 'g' для генерації заявки, 'p' для обробки заявки, 'q' для виходу: ").strip().lower()
+            
+            if user_input == 'g':
+                generate_request()
+            elif user_input == 'p':
+                process_request()
+            elif user_input == 'q':
+                print("Вихід з програми")
+                break
+            else:
+                print("Невідома команда, спробуйте ще раз")
+    except Exception as e:
+        print(f"Виникла помилка: {e}")
 
 if __name__ == "__main__":
     main()
